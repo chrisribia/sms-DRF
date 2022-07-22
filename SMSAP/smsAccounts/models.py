@@ -1,5 +1,12 @@
+from datetime import datetime
+from pyexpat import model
 from django.db import models
+import os
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from datetime import datetime
+
+
+now = datetime.now()
 
 class UserAccountManger(BaseUserManager):
     def create_user(self,email,name,password = None):
@@ -31,10 +38,16 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
 class Profile(models.Model):
     user = models.OneToOneField(UserAccount, on_delete=models.CASCADE) 
-    # parent_name = models.
+    parent_name = models.CharField(max_length=255,default="")
+    DOB = models.DateField(default=now)
+    date_admitted = models.DateField(default=now)
+    previous_School = models.CharField(max_length=255, default="")
+    EntryScore = models.IntegerField( default=0)
+    comment = models.TextField(max_length=255, default="")
+
 
     def __str__(self):
-        return f'{self.user.firstname} Profile'
+        return f'{self.user.name} Profile'
      
 
 

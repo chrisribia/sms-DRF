@@ -50,6 +50,4 @@ class Profile(models.Model):
         return f'{self.user.name} Profile'
      
 
-
-
-# Create your models here.
+ 

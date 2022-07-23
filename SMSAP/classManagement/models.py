@@ -13,4 +13,4 @@ class ClassMembersDetails(models.Model):
     StudentReg = models.CharField(max_length=255,default=None)
 
     def __str__(self):
-        return self.StudentsReg
+        return self.StudentReg

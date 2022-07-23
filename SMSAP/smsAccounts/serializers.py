@@ -11,7 +11,7 @@ class UserCreateSerializer(UserCreateSerializer):
 
 
 class profileSerializer(serializers.ModelSerializer):  
-    REQUIRED_FILEDS = '__all__'
+    REQUIRED_FIELDS = '__all__'
     class Meta:
         model = Profile
         fields = ('id','user','parent_name','DOB','date_admitted','previous_School','EntryScore','comment')

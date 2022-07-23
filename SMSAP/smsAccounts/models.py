@@ -1,9 +1,10 @@
 from datetime import datetime
 from pyexpat import model
 from django.db import models
-import os
+from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from datetime import datetime
+import random
 
 
 now = datetime.now()
@@ -39,11 +40,12 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 class Profile(models.Model):
     user = models.OneToOneField(UserAccount, on_delete=models.CASCADE) 
     parent_name = models.CharField(max_length=255,default="")
-    DOB = models.DateField(default=now)
-    date_admitted = models.DateField(default=now)
+    DOB = models.DateField(default=timezone.now)
+    date_admitted = models.DateField(default=timezone.now)
     previous_School = models.CharField(max_length=255, default="")
     EntryScore = models.IntegerField( default=0)
     comment = models.TextField(max_length=255, default="")
+    RegistrationNum = models.CharField(max_length=255,unique = True, default=random.random())
 
 
     def __str__(self):

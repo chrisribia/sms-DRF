@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'djoser',
     'smsAccounts',
     'classManagement',
+    'subjectManagement'
 ]
 
 MIDDLEWARE = [

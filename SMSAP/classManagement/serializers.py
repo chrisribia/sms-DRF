@@ -1,13 +1,19 @@
 from rest_framework import serializers
-from . models import ClassList, ClassMembers
+from . models import ClassList, ClassMembersDetails
+
+
 
 
 class ClassListSerializer(serializers.ModelSerializer):
     class Meta:
         model  = ClassList
-        fields = ('classNames','Teacher')
+        fields = ('ClassNames','Teacher')
 
-class ClassMembersSerializer(serializers.ModelSerializer):
+class ClassMembersDetailsSerializer(serializers.ModelSerializer):
     class Meta:
-        model  = ClassMembers
-        fields = ('classNames','classMemberReg')
+        model  = ClassMembersDetails
+        fields = ('ClassLevelName','StudentReg')
+
+
+
+ 
